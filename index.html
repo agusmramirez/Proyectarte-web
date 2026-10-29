@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROYECTARTE | Grupo artístico</title>
+  <meta name="description" content="PROYECTARTE: cinco estudiantes de Comunicación que exploran la poesía a través de la performance.">
+  <style>
+    :root {
+      --green: #315b43;
+      --light-green: #dce8d8;
+      --pink: #efb5c8;
+      --light-pink: #f9e8ed;
+      --cream: #fffaf5;
+      --ink: #25372b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 7%;
+      background: var(--cream);
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--green);
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-left: 16px;
+    }
+
+    .hero {
+      padding: 85px 8% 65px;
+      background: var(--light-pink);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--green);
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 11vw, 8.5rem);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+      color: var(--green);
+      margin: 28px 0;
+    }
+
+    h1 span {
+      color: #c45d83;
+    }
+
+    .intro {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      padding: 15px 23px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    .photo-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      min-height: 230px;
+      border: 2px dashed var(--green);
+      border-radius: 8px;
+      background: var(--light-green);
+      color: var(--green);
+      line-height: 1.6;
+    }
+
+    .photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+    }
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-photo {
+      margin-top: 38px;
+      height: clamp(260px, 48vw, 560px);
+      background: var(--light-green);
+      border-radius: 8px;
+    }
+
+    .hero-photo .photo-placeholder {
+      height: 100%;
+    }
+
+    section {
+      padding: 85px 8%;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      color: var(--green);
+      margin: 12px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.9;
+    }
+
+    .play-photo {
+      min-height: 340px;
+      background: var(--pink);
+    }
+
+    .members {
+      background: var(--light-green);
+    }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .member-card {
+      min-width: 0;
+    }
+
+    .member-photo {
+      aspect-ratio: 3 / 4;
+      background: var(--pink);
+      margin-bottom: 13px;
+    }
+
+    .member-photo .photo-placeholder {
+      height: 100%;
+      border-color: #c45d83;
+      background: var(--light-pink);
+      color: var(--green);
+    }
+
+    .member-card h3 {
+      margin: 8px 0;
+      font-size: 1.1rem;
+      color: var(--green);
+    }
+
+    .member-card p {
+      margin-top: 0;
+      font-size: 0.85rem;
+    }
+
+    .proposal {
+      background: var(--cream);
+    }
+
+    .proposal-box {
+      background: var(--light-pink);
+      padding: clamp(25px, 6vw, 65px);
+      border-radius: 8px;
+    }
+
+    .proposal-box p {
+      max-width: 700px;
+      font-size: 1.1rem;
+      line-height: 1.9;
+    }
+
+    footer {
+      padding: 50px 8%;
+      background: var(--green);
+      color: white;
+    }
+
+    footer .logo {
+      color: var(--pink);
+      font-size: 2rem;
+    }
+
+    footer p {
+      line-height: 1.7;
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        display: inline-block;
+        padding: 5px 0;
+      }
+
+      nav .links {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      section {
+        padding: 60px 7%;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .member-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 12px;
+      }
+
+      .play-photo {
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="#inicio">PROYECTARTE.</a>
+    <div class="links">
+      <a href="#nosotras">Nosotras</a>
+      <a href="#integrantes">Integrantes</a>
+      <a href="#propuesta">La propuesta</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <p class="eyebrow">Artes Comparadas · 2026</p>
+    <h1>PROYEC<span>TARTE</span></h1>
+    <p class="intro">
+      Cinco miradas, cinco voces y un espacio para explorar
+      todo lo que la palabra puede expresar.
+    </p>
+    <div class="hero-bottom">
+      <a class="button" href="#propuesta">Conocé nuestro proyecto ↘</a>
+      <p>Un encuentro entre poesía, cuerpo y escena.</p>
+    </div>
+
+    <div class="photo hero-photo">
+      <div class="photo-placeholder">
+        <div>
+          <strong>FOTOGRAFÍA GRUPAL</strong><br>
+          Acá va la foto formal de las cinco.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="nosotras">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / Quiénes somos</p>
+        <h2>Crear en conjunto.</h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Somos PROYECTARTE, un grupo de cinco estudiantes de
+          Ciencias de la Comunicación que encuentra en el arte
+          una forma de explorar, comunicar y compartir ideas.
+        </p>
+        <p>
+          Para Artes Comparadas, nos acercamos a la poesía desde
+          la lectura performática: la palabra se encuentra con
+          la voz, el cuerpo y la presencia para construir una
+          experiencia artística colectiva.
+        </p>
+      </div>
+
+      <div class="photo play-photo">
+        <div class="photo-placeholder">
+          <div>
+            <strong>NUESTRO LADO MÁS LÚDICO</strong><br>
+            Acá va la foto de las cinco jugando.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="members" id="integrantes">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">02 / Las integrantes</p>
+        <h2>Cinco formas de mirar.</h2>
+      </div>
+      <p>Un proyecto, cinco identidades.</p>
+    </div>
+
+    <div class="member-grid">
+      <article class="member-card">
+        <div class="photo member-photo">
+          <div class="photo-placeholder">Retrato de Catalina</div>
+        </div>
+        <h3>Catalina González Petta</h3>
+        <p>Estudiante de Ciencias de la Comunicación</p>
+      </article>
+
+      <article class="member-card">
+        <div class="photo member-photo">
+          <div class="photo-placeholder">Retrato de Agustina</div>
+        </div>
+        <h3>Agustina Ramirez</h3>
+        <p>Estudiante de Ciencias de la Comunicación</p>
+      </article>
+
+      <article class="member-card">
+        <div class="photo member-photo">
+          <div class="photo-placeholder">Retrato de Juliana</div>
+        </div>
+        <h3>Juliana Sarlengo</h3>
+        <p>Estudiante de Ciencias de la Comunicación</p>
+      </article>
+
+      <article class="member-card">
+        <div class="photo member-photo">
+          <div class="photo-placeholder">Retrato de Aranzazu</div>
+        </div>
+        <h3>Aranzazu Segura</h3>
+        <p>Estudiante de Ciencias de la Comunicación</p>
+      </article>
+
+      <article class="member-card">
+        <div class="photo member-photo">
+          <div class="photo-placeholder">Retrato de Milagros</div>
+        </div>
+        <h3>Milagros Ruppel</h3>
+        <p>Estudiante de Ciencias de la Comunicación</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="proposal" id="propuesta">
+    <div class="proposal-box">
+      <p class="eyebrow">03 / Nuestra propuesta artística</p>
+      <h2>La poesía también se habita.</h2>
+      <p>
+        Nuestra propuesta consiste en una lectura poética
+        performática que busca explorar las posibilidades
+        expresivas de la palabra más allá de su lectura
+        convencional.
+      </p>
+      <p>
+        A través de la voz, los gestos, el movimiento y la
+        presencia escénica, queremos construir una experiencia
+        donde la literatura dialogue con otras formas de arte.
+      </p>
+      <p><em>Próximamente: los textos, autores y detalles de la performance.</em></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo">PROYECTARTE.</div>
+    <p>Cinco voces. Un espacio para crear.</p>
+    <p>Artes Comparadas · Ciencias de la Comunicación · 2026</p>
+  </footer>
+
+</body>
+</html>
